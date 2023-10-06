@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="default-options.js"></script>
+    <script src="options.js"></script>
+    <link href="forms-min.css" rel="stylesheet" />
+    <style>
+      /* CSS to hide the Remove button initially */
+      .removeButton {
+        display: none;
+      }
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+	  body{
+		min-height: 300px;
+	  }
+    </style>
+  </head>
+  <body>
+    <form class="pure-form pure-form-aligned">
+      <fieldset>
+        <div class="pure-control-group">
+          <label for="monitor-interval">Timer interval </label>
+          <input
+            id="monitor-interval"
+            type="number"
+            min="100"
+            step="10"
+            title="Time (in milliseconds) between clipboard checks. Low values may cause performance problems."
+          />
+        </div>
+		<div class="pure-control-group">
+			<label for="max-length">Max Length </label>
+			<input id="max-length" type="text" title="Ignore clipboard with text longer than" />
+		  </div>
+        <div class="pure-control-group">
+          <label for="ignore">Ignore if starts with </label>
+          <input id="ignore" type="text" title="If the text start with this, it will be ignored" />
+        </div>
+		<div class="pure-control-group">
+			<label for="input-language">Input Language </label>
+			<input id="input-language" type="text" title="Use lowercase two letter codes" />
+		  </div>
+		  <div class="pure-control-group">
+			<label for="output-language">Output Language </label>
+			<input id="output-language" type="text" title="Use lowercase two letter codes" />
+		  </div>
+      </fieldset>
+	  <hr style="border-width:3px">
+	  Replacements:
+      <fieldset id="replacementInputs">
+		<!-- Inputs will be added via js code -->
+	  </fieldset>
+      <button type="button" id="addButton">Add Field</button>
+      <button type="button" id="saveButton">Save Replacements</button>
+    </form>
+  </body>
+</html>

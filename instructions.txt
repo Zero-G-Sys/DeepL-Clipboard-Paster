@@ -1,0 +1,89 @@
+What is this?
+
+https://files.catbox.moe/fofdq4.webm
+
+An extension and userscript that automates the DeepL translation process for VNs using Textractor.
+It seems the website lets you translate things however much you want, so for now this bypasses the API usage limit problem with Textractor's DeepL extension.
+This can be used on the latest Firefox or Chrome.
+
+How does it work?
+
+Textractor copies the Japanese text to the clipboard.
+The clipboard's contents are pasted into DeepL with the extension.
+DeepL translates the Japanese line to English.
+The userscript detects that the translation has finished, and copies the translated English text to the clipboard.
+The clipboard's contents are displayed on the Extra Window extension in Textractor during this whole process.
+
+How do I set it up?
+
+Firefox users:
+Open Firefox
+Get the GreaseMonkey addon: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
+Click the GreaseMonkey icon at the top right, select "New user script..."
+Delete all text inside the GreaseMonkey script editor.
+Open "DeepL - Auto VN Translation/userscript/userscript.js" with a text editor.
+Copy all the text inside.
+Paste it into the GreaseMonkey script editor.
+Click the save icon at the top left.
+You now have the userscript set up.
+Go to about:debugging
+Click "This Firefox".
+Click "Load Temporary Add-on..."
+Select "DeepL - Auto VN Translation/extension/manifest.json"
+You now have the extension set up.
+
+Chrome users:
+Open Chrome
+Get the TamperMonkey extension: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en
+Click the TamperMonkey icon at the top right, select "Create a new script..."
+Delete all text inside the TamperMonkey script editor.
+Open "DeepL - Auto VN Translation/userscript/userscript.js" with a text editor.
+Copy all the text inside.
+Paste it into the TamperMonkey script editor.
+Go to File > Save.
+You now have the userscript set up.
+Go to chrome://extensions/
+Enable "Developer Mode" at the top right.
+Select "Load Unpacked"
+Select "DeepL - Auto VN Translation/extension/"
+You now have the extension set up.
+
+Now it's time to download Textractor.
+Go here: https://github.com/Artikash/Textractor/releases/latest
+Download the English-Only zip file.
+Extract it somewhere.
+
+This completes the set up.
+
+How do I use it?
+
+Watch this:
+
+https://files.catbox.moe/k8auxe.webm
+
+The video is from an older version but setup stays the same.
+Also, it may be safe to also remove the "Remove Repeated Phrases" extension for the x64 version
+since it messed up an English sentence for me at one point.
+
+I forgot to have my mouse recorded as well, but you should be able to understand what I did.
+
+Notes (4-24-20):
+
+Every issue I noticed mentioned so far on /vn/ has been fixed.
+
+You can now ctrl through boring garbage without having to worry about all the paragraphs
+of text getting pasted into DeepL. I've done this by limiting sentences to 200 characters.
+This can be changed in "extension/fg/insert.js".
+
+Elipses should no longer completely break DeepL, but translation still
+seems slow when their alternative is present in the sentence.
+
+For people who get the "undefined" English translation bug, you should move over to GreaseMonkey.
+The only time I encountered this problem was on one machine using TamperMonkey.
+Once I installed the userscript with GreaseMonkey instead, the problem was gone.
+TamperMonkey seems to occasionally have a problem with the GM.setClipboard function.
+If you're using Chrome you will have to use Firefox instead.
+
+I have cleaned up "extension/fg/insert.js" and "userscript/userscript.js" so that
+they are easier to understand and hopefully easier to modify.
+The commented sections are the areas that do most of the work.

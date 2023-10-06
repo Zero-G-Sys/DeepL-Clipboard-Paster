@@ -1,0 +1,40 @@
+{
+    "manifest_version": 2,
+    "name": "DeepL - Auto VN Translation Extension",
+    "version": "1",
+
+    "description": "An addon that automatically pastes clipboard contents into DeepL. Works in conjunction with a helper userscript.",
+
+    "icons": {},
+    
+    "permissions": [
+	"activeTab",
+	"clipboardRead",
+	"storage",
+	"file://*/*"
+    ],
+
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "extension@xScruffers.github.com"
+        }
+    },
+
+    "browser_action": {
+	"browser_style": true,
+	"default_icon": {
+	    "16": "icon/icon16.png",
+	    "32": "icon/icon32.png",
+	    "64": "icon/icon64.png"
+	},
+	"default_title": "Toggle clipboard paster for DeepL"
+    },
+    
+    "background": {
+	"page": "bg/index.html"
+    },
+
+    "options_ui": {
+	"page": "options.html"
+    }
+}
