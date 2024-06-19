@@ -11,7 +11,8 @@
 	"activeTab",
 	"clipboardRead",
 	"storage",
-	"file://*/*"
+	"file://*/*",
+    "tabs"
     ],
 
     "browser_specific_settings": {

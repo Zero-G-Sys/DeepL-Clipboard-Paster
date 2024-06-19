@@ -33,14 +33,15 @@ console.log('DeepL monitoring started');
 
               // Process replacements
               for (const item of replacements) {
-				let replacement = item.replacement;
-				// If replacement is a function and not plain text, parse it
-				if(item.function) replacement = new Function('...args', replacement);
-                text = text.replace(item.pattern, replacement);
+                let replacement = item.replacement;
+                // If replacement is a function and not plain text, parse it
+                if(item.function) replacement = new Function('...args', replacement);
+                  text = text.replace(item.pattern, replacement);
               }
 
               // Then change the URL to your clipboard's content, starting the translation process.
-              document.location.href = 'https://www.deepl.com/translator#' + inputLanguage + '/' + outputLanguage + '/' + text;
+              //document.location.href = 'https://www.deepl.com/translator#' + inputLanguage + '/' + outputLanguage + '/' + text;
+              window.location.hash = '#' + inputLanguage + '/' + outputLanguage + '/' + text;
             }
           }
         }
